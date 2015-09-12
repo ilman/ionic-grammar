@@ -17,3 +17,41 @@ angular.module('starter', ['ionic'])
     }
   });
 })
+
+.config(function($stateProvider, $urlRouterProvider){
+  $stateProvider
+  .state('tabs', {
+    url: '/tab',
+    abstract: true,
+    templateUrl: 'templates/tabs.html'
+  })
+  .state('tabs.list', {
+    url: '/list',
+    views: {
+      'list-tab': {
+        templateUrl: 'templates/list.html',
+        controller: 'ListController'
+      }
+    }
+  })
+  .state('tabs.detail', {
+    url: '/list/:slug',
+    views: {
+      'list-tab': {
+        templateUrl: 'templates/detail.html',
+        controller: 'ListController'
+      }
+    }
+  })
+
+  $urlRouterProvider.otherwise('/tab/list');
+})
+
+
+.controller('ListController', ['$scope', '$http', '$state', function($scope, $http, $state){
+  $http.get('js/data.json').success(function(data){
+    $scope.topics = data;
+    $scope.current_topic = $state.params.current_topic;
+
+  });
+}])
