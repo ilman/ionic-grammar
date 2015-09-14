@@ -51,7 +51,27 @@ angular.module('starter', ['ionic'])
 .controller('ListController', ['$scope', '$http', '$state', function($scope, $http, $state){
   $http.get('js/data.json').success(function(data){
     $scope.topics = data;
-    $scope.current_topic = $state.params.current_topic;
+    $scope.slug = $state.params.slug;
 
+    $scope.tai = function(slug){
+      return 'contents/'+slug+'.html'
+    }
+    $scope.isChildShown = function(item) {
+      return $scope.shownChild === item;
+    };
+    $scope.toggleChild = function(item, $event) {
+      if(item.child) {
+        $event.preventDefault();
+      }
+
+      if ($scope.isChildShown(item)) {
+        $scope.shownChild = null;
+      } else {
+        $scope.shownChild = item;
+      }
+    };
+    $scope.toggleHref = function(item) {
+
+    };
   });
 }])
