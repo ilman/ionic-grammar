@@ -1,15 +1,20 @@
 [
 {
 	"title": "Indefinite Articles (a/an)",
-	"slug": "indifinite_articles"
+	"slug": "indifinite_articles",
+	"desc": "Refer to something non-specific",
+	"formula": "Subject + Verb/Be + A/An + Noun"
 },
 {
 	"title": "Definite Articles (the)",
-	"slug": "definite_articles"
+	"slug": "definite_articles",
+	"desc": "Refer to something specific or already mentioned",
+	"formula": "Subject + Verb/Be + The + Noun"
 },
 {
 	"title": "Adjectives",
-	"slug": "adjectives"
+	"slug": "adjectives",
+	"desc": "Word that describe a noun or pronoun",
 },
 {
 	"title": "Adverbs",
